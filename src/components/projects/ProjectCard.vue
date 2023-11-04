@@ -12,9 +12,34 @@ export default {
 <template>
   <div class="col">
     <div class="card">
-      <span class="m-1"><strong>Id:</strong> {{ project.id }}</span>
-      <span class="m-1"><strong>Nome:</strong> {{ project.name_prog }}</span>
-      <span class="m-1"><strong>Link:</strong> {{ project.link }}</span>
+      <div class="list m-2">
+        <strong>Id: </strong>
+        <span>{{ project.id }}</span>
+      </div>
+      <div class="list m-2">
+        <strong>Nome:</strong> <span>{{ project.name_prog }}</span>
+      </div>
+      <div class="list m-2">
+        <strong>Link:</strong> <span>{{ project.link }}</span>
+      </div>
+      <div class="list d-flex gap-1 m-2">
+        <strong>Tecnologia:</strong>
+        <div v-for="technology in project.technologies">
+          <span
+            class="badge ronded-pill"
+            :style="{ backgroundColor: technology.color }"
+          >
+            {{ technology.label }}</span
+          >
+        </div>
+      </div>
+      <div class="list m-2">
+        <strong>Parte Sviluppata: </strong
+        ><span v-if="project.type_id > 0">{{
+          project.type.developed_part
+        }}</span>
+        <span v-else>Nessuna</span>
+      </div>
     </div>
   </div>
 </template>
