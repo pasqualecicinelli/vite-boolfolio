@@ -11,7 +11,7 @@ export default {
 
 <template>
   <div class="col">
-    <div class="card">
+    <div class="card h-100">
       <div class="list m-2">
         <strong>Id: </strong>
         <span>{{ project.id }}</span>
@@ -35,10 +35,8 @@ export default {
       </div>
       <div class="list m-2">
         <strong>Parte Sviluppata: </strong
-        ><span v-if="project.type_id > 0">{{
-          project.type.developed_part
-        }}</span>
-        <span v-else>Nessuna</span>
+        ><span v-if="project.type_id">{{ project.type.developed_part }}</span>
+        <span v-else="!project.type_id">Nessuna</span>
       </div>
     </div>
   </div>

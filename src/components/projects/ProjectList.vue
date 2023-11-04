@@ -8,21 +8,25 @@ export default {
   data() {
     return {
       projects: [],
+      pagination: {
+        links: null,
+      },
     };
   },
 
   components: { ProjectCard },
 
   methods: {
-    fetchProject() {
-      axios.get(store.api.baseUrl + "projects").then((response) => {
+    fetchProjects(uri = store.api.baseUrl + "projects") {
+      axios.get(uri).then((response) => {
         this.projects = response.data.data;
+        this.pagination.links = response.data.links;
       });
     },
   },
 
   created() {
-    this.fetchProject();
+    this.fetchProjects();
   },
 };
 </script>
@@ -30,8 +34,20 @@ export default {
 <template>
   <div class="container">
     <h1 class="text-center my-5">Lista</h1>
-    <div class="row row-cols-2 g-2">
+    <div class="row row-cols-2 g-3">
       <ProjectCard v-for="project in projects" :project="project" />
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li
+            v-for="link in pagination.links"
+            @click="fetchProjects(link.url)"
+            class="page-item"
+          >
+            <a class="page-link" href="#" v-html="link.label"></a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </template>
