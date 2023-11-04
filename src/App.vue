@@ -1,24 +1,18 @@
 <script>
-import axios from "axios";
+import ProjectList from "./components/projects/ProjectList.vue";
 
 export default {
   data() {
-    return {
-      projects: [],
-    };
+    return {};
   },
-
-  created() {
-    axios.get("http://127.0.0.1:8000/api/projects").then((response) => {
-      console.log(response.data.data);
-      this.projects = response.data.data;
-    });
-  },
+  components: { ProjectList },
 };
 </script>
 
 <template>
-  <h1>hello</h1>
+  <h1 class="text-center my-2">Progetti</h1>
+
+  <ProjectList />
 </template>
 
 <style lang="scss"></style>
