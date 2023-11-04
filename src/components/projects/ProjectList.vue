@@ -2,13 +2,12 @@
 import ProjectCard from "./ProjectCard.vue";
 import axios from "axios";
 
+import { store } from "../../data/store";
+
 export default {
   data() {
     return {
       projects: [],
-      api: {
-        baseUrl: "http://127.0.0.1:8000/api/",
-      },
     };
   },
 
@@ -16,7 +15,7 @@ export default {
 
   methods: {
     fetchProject() {
-      axios.get(this.api.baseUrl + "projects").then((response) => {
+      axios.get(store.api.baseUrl + "projects").then((response) => {
         this.projects = response.data.data;
       });
     },
