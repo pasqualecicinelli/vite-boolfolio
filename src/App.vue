@@ -12,6 +12,8 @@ export default {
 <template>
   <h1 class="text-center my-2">Progetti</h1>
 
+  <router-view></router-view>
+
   <ProjectList />
 </template>
 
