@@ -33,7 +33,6 @@ export default {
 
 <template>
   <div class="container">
-    <h1 class="text-center my-5">Lista</h1>
     <div class="row row-cols-2 g-3">
       <ProjectCard v-for="project in projects" :project="project" />
 

@@ -1,20 +1,20 @@
 <script>
-import ProjectList from "./components/projects/ProjectList.vue";
+import Navbar from "./components/Navbar.vue";
 
 export default {
   data() {
     return {};
   },
-  components: { ProjectList },
+  components: { Navbar },
 };
 </script>
 
 <template>
-  <h1 class="text-center my-2">Progetti</h1>
+  <header>
+    <Navbar></Navbar>
+  </header>
 
   <router-view></router-view>
-
-  <ProjectList />
 </template>
 
 <style lang="scss"></style>
