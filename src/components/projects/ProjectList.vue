@@ -34,7 +34,11 @@ export default {
 <template>
   <div class="container">
     <div class="row row-cols-2 g-3">
-      <ProjectCard v-for="project in projects" :project="project" />
+      <ProjectCard
+        v-for="project in projects"
+        :project="project"
+        :isDetail="false"
+      />
 
       <nav aria-label="Page navigation example">
         <ul class="pagination">

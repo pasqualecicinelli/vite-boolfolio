@@ -5,6 +5,7 @@ export default {
   },
   props: {
     project: Object,
+    isDetail: Boolean,
   },
 };
 </script>
@@ -37,6 +38,24 @@ export default {
         <strong>Parte Sviluppata: </strong
         ><span v-if="project.type_id">{{ project.type.developed_part }}</span>
         <span v-else="!project.type_id">Nessuna</span>
+      </div>
+
+      <div class="list m-2" v-if="isDetail">
+        <strong>Descrizione: </strong>
+        <span> {{ project.description }}</span>
+      </div>
+
+      <div class="card-footer" v-if="!isDetail">
+        <router-link
+          :to="{
+            name: 'project-detail',
+            params: {
+              id: project.id,
+            },
+          }"
+          class="btn btn-primary m-2 w-25"
+          >Dettagli</router-link
+        >
       </div>
     </div>
   </div>
