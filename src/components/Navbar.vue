@@ -14,35 +14,32 @@ export default {
         class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
-        data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <router-link
-                class="nav-link"
-                aria-current="page"
-                :to="{ name: 'homepage' }"
-                >Home</router-link
-              >
-            </li>
-
-            <li class="nav-item">
-              <router-link
-                class="nav-link"
-                aria-current="page"
-                :to="{ name: 'portfolio' }"
-                >Lista Progetti</router-link
-              >
-            </li>
-          </ul>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link
+              class="nav-link"
+              aria-current="page"
+              :to="{ name: 'homepage' }"
+              >Home</router-link
+            >
+          </li>
+          <li class="nav-item">
+            <router-link
+              class="nav-link"
+              aria-current="page"
+              :to="{ name: 'portfolio' }"
+              >Lista Progetti</router-link
+            >
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
