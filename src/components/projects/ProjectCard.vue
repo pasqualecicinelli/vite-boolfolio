@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <div class="col">
+  <div class="col my-2">
     <div class="card h-100">
       <div class="list m-2">
         <strong>Id: </strong>
@@ -35,8 +35,17 @@ export default {
         </div>
       </div>
       <div class="list m-2">
-        <strong>Parte Sviluppata: </strong
-        ><span v-if="project.type_id">{{ project.type.developed_part }}</span>
+        <strong>Parte Sviluppata: </strong>
+        <router-link
+          :to="{
+            name: 'projects-by-type',
+            params: {
+              type_id: project.type_id,
+            },
+          }"
+          v-if="project.type_id"
+          >{{ project.type.developed_part }}</router-link
+        >
         <span v-else="!project.type_id">Nessuna</span>
       </div>
 
