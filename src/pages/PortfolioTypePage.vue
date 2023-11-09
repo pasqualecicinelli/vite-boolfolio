@@ -21,10 +21,13 @@ export default {
 };
 </script>
 
+<!-- AGGIUSTARE {{ type.developed_part }} -->
+
 <template>
   <div class="container">
     <h1 class="text-center my-5">
-      Tipo di progetto: {{ type.developed_part }}
+      Tipo di progetto:
+      <span>{{ type.developed_part }}</span>
     </h1>
 
     <TypeList :type_id="type.id" v-if="type" />

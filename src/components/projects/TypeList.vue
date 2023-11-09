@@ -20,13 +20,13 @@ export default {
   components: { ProjectCard },
 
   methods: {
-    fetchProjects() {
-      axios
-        .get(store.api.baseUrl + "projects-by-type/" + this.type_id)
-        .then((response) => {
-          this.projects = response.data.data;
-          this.pagination.links = response.data.links;
-        });
+    fetchProjects(
+      uriType = store.api.baseUrl + "projects-by-type/" + this.type_id
+    ) {
+      axios.get(uriType).then((response) => {
+        this.projects = response.data.data;
+        this.pagination.links = response.data.links;
+      });
     },
   },
   created() {
@@ -36,8 +36,6 @@ export default {
 </script>
 
 <template>
-  <!-- TODO: AGGIUSTARE IL PAGINATION -->
-
   <div class="row row-cols-2 my-2 g-3">
     <ProjectCard
       v-for="project in projects"
