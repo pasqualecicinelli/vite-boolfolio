@@ -12,7 +12,7 @@ export default {
 
 <template>
   <nav aria-label="...">
-    <ul class="pagination">
+    <ul class="pagination my-3">
       <li
         class="page-item"
         v-for="link in pagination"

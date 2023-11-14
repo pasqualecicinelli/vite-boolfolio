@@ -13,7 +13,7 @@ export default {
 <template>
   <div class="col my-2">
     <div class="card h-100">
-      <div class="list m-2">
+      <div class="card-header m-2">
         <strong>Id: </strong>
         <span>{{ project.id }}</span>
       </div>
@@ -49,9 +49,18 @@ export default {
         <span v-else="!project.type_id">Nessuna</span>
       </div>
 
-      <div class="list m-2" v-if="isDetail">
+      <div class="list m-2">
         <strong>Descrizione: </strong>
         <span> {{ project.description }}</span>
+      </div>
+
+      <div class="list m-2">
+        <img
+          class="img-fluid w-50"
+          v-if="project.cover_image"
+          :src="project.cover_image"
+        />
+        <div v-else>Nessuna Immagine inserita</div>
       </div>
 
       <div class="card-footer" v-if="!isDetail">
