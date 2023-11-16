@@ -46,7 +46,7 @@ export default {
           v-if="project.type_id"
           >{{ project.type.developed_part }}</router-link
         >
-        <span v-else="!project.type_id">Nessuna</span>
+        <span v-else>Nessuna</span>
       </div>
 
       <div class="list m-2">
@@ -54,13 +54,15 @@ export default {
         <span> {{ project.description }}</span>
       </div>
 
-      <div class="list m-2">
+      <div class="list m-2 flex-grow-1">
         <img
           class="img-fluid w-50"
           v-if="project.cover_image"
           :src="project.cover_image"
         />
-        <div v-else>Nessuna Immagine inserita</div>
+        <div v-else>
+          <strong>Cover dell'immagine: </strong>Nessuna immagine inserita
+        </div>
       </div>
 
       <div class="card-footer" v-if="!isDetail">
